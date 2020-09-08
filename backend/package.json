@@ -1,0 +1,24 @@
+{
+  "name": "SoundBox",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Julien Gerphagnon",
+  "license": "ISC",
+  "main": "server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "start": "rimraf ./dist && npm run build && node dist/server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-preset-es2015": "^6.24.0"
+  }
+}
