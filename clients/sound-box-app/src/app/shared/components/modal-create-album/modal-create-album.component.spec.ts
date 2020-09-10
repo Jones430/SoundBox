@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogCreateAlbumComponent } from './dialog-create-album.component';
+import { ModalCreateAlbumComponent } from './modal-create-album.component';
 
-describe('DialogCreateAlbumComponent', () => {
-  let component: DialogCreateAlbumComponent;
-  let fixture: ComponentFixture<DialogCreateAlbumComponent>;
+describe('ModalCreateAlbumComponent', () => {
+  let component: ModalCreateAlbumComponent;
+  let fixture: ComponentFixture<ModalCreateAlbumComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogCreateAlbumComponent ]
+      declarations: [ ModalCreateAlbumComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DialogCreateAlbumComponent);
+    fixture = TestBed.createComponent(ModalCreateAlbumComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

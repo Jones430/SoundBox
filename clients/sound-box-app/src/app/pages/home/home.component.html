@@ -1,10 +1,12 @@
-<button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openCreateDialog()">
-  <mat-icon>add</mat-icon>
-</button>
+<div class="container">
+  <button mat-fab class="button_add" color="primary" aria-label="Example icon button with a delete icon" (click)="openCreateDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
 
-<mat-list>
-  <div mat-subheader>Albums</div>
-  <mat-list-item *ngFor="let album of albums">
-    <app-card-album [album]="album" (onDeleteAlbum)="removeAlbum($event)"></app-card-album>
-  </mat-list-item>
-</mat-list>
+  <mat-list>
+    <div mat-subheader>Albums</div>
+    <mat-list-item *ngFor="let album of albums" class="list-horizontal">
+      <app-card-album [album]="album" (onAlbumUpdate)="onUpdateAlbum($event)" (onAlbumRemove)="onDeleteAlbum($event)"></app-card-album>
+    </mat-list-item>
+  </mat-list>
+</div>

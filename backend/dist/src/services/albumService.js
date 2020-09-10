@@ -22,7 +22,12 @@ var AlbumService = function () {
   _createClass(AlbumService, [{
     key: 'CreateAlbum',
     value: async function CreateAlbum(data) {
-      var response = await _album2.default.create(data);
+      var newInsert = new _album2.default();
+      newInsert.title = data.title;
+      newInsert.description = data.description;
+      newInsert.publishing_date = data.publishing_date;
+      newInsert.cover_b64 = data.cover_b64;
+      var response = await newInsert.save();
       return response;
     }
   }, {
@@ -40,6 +45,7 @@ var AlbumService = function () {
   }, {
     key: 'RemoveAlbum',
     value: async function RemoveAlbum(albumId) {
+      console.log(albumId);
       var response = await _album2.default.findOneAndDelete(albumId);
       return response;
     }
@@ -47,6 +53,10 @@ var AlbumService = function () {
     key: 'UpdateAlbum',
     value: async function UpdateAlbum(id, data) {
       var response = await _album2.default.findOneAndUpdate({ _id: id }, data);
+      if (response) {
+        var findAlbumUpdated = await this.GetAlbumById(id);
+        return findAlbumUpdated;
+      }
       return response;
     }
   }]);

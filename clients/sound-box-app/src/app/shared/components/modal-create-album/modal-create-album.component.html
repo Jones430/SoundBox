@@ -1,0 +1,19 @@
+<div mat-dialog-content class="dialog-create-album">
+  <p>New album</p>
+  <form [formGroup]="albumForm" autocomplete="off" novalidate (ngSubmit)="createOrUpdateAlbum(albumForm.value)">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" required></textarea>
+    </mat-form-field>
+    <br>
+    <input type="file" formControlName="file" />
+    <br><br>
+    <button mat-raised-button color="primary" *ngIf="!isUpdate">Create</button>
+    <button mat-raised-button color="primary" *ngIf="isUpdate">Update</button>
+  </form>
+</div>

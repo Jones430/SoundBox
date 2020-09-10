@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Material Components
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -8,6 +9,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +24,7 @@ import { CardAlbumComponent } from './shared/components/card-album/card-album.co
 import { ApiService } from '../services/api.service';
 import { AlbumService } from '../services/album.service';
 import { DialogComponent } from './shared/components/dialog/dialog.component';
-import { DialogCreateAlbumComponent } from './shared/components/dialog-create-album/dialog-create-album.component';
+import { ModalCreateAlbumComponent } from './shared/components/modal-create-album/modal-create-album.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,7 @@ import { DialogCreateAlbumComponent } from './shared/components/dialog-create-al
     HeaderComponent,
     CardAlbumComponent,
     DialogComponent,
-    DialogCreateAlbumComponent
+    ModalCreateAlbumComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,11 @@ import { DialogCreateAlbumComponent } from './shared/components/dialog-create-al
     MatCardModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService, AlbumService],
   bootstrap: [AppComponent]

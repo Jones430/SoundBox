@@ -17,7 +17,15 @@ export class AlbumService {
     return this._apiService.get<ApiResponse>(`api/albums`);
   }
 
+  public addAlbum(album: Album): Observable<ApiResponse> {
+    return this._apiService.post<ApiResponse>(`api/album`, album);
+  }
+
+  public updateAlbum(album: Album): Observable<ApiResponse> {
+    return this._apiService.put<ApiResponse>(`api/album/${album._id}`, album);
+  }
+
   public removeAlbum(album): Observable<ApiResponse> {
-    return this._apiService.delete(`api/album`, album.id);
+    return this._apiService.delete(`api/album`, album._id);
   }
 }

@@ -5,27 +5,36 @@ export default class AlbumService {
   constructor() {}
   
   async CreateAlbum (data) {
-    const response = await Album.create(data);
+    let newInsert = new Album();
+    newInsert.title = data.title;
+    newInsert.description = data.description;
+    newInsert.publishing_date = data.publishing_date;
+    newInsert.cover_b64 = data.cover_b64;
+    const response = await newInsert.save();
     return response;
   }
 
   async GetAlbumById (id) {
-    var response = await Album.findById(id);
+    const response = await Album.findById(id);
     return response;
   }
 
   async GetAllAlbum () {
-    var response = await Album.find({});
+    const response = await Album.find({});
     return response;
   }
 
   async RemoveAlbum (albumId) {
-    var response = await Album.findOneAndDelete(albumId);
+    const response = await Album.findOneAndDelete(albumId);
     return response;
   }
 
   async UpdateAlbum (id, data) {
-    var response = await Album.findOneAndUpdate({ _id: id }, data);
+    const response = await Album.findOneAndUpdate({ _id: id }, data);
+    if (response) {
+      const findAlbumUpdated = await this.GetAlbumById(id);
+      return findAlbumUpdated;
+    }
     return response;
   }
 }

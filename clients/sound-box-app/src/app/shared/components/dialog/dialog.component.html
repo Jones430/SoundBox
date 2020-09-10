@@ -1,1 +1,6 @@
-<p>dialog works!</p>
+<div mat-dialog-content class="dialog-more-album">
+  <h2>Album informations</h2>
+  <p>Title : {{ data['album']['title'] }}</p>
+  <p>Description : {{ data['album']['description'] }}</p>
+  <p>Publish date : {{ data['album']['publishDate'] | date: 'dd/MM/yyyy' }}</p>
+</div>

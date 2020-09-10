@@ -22,8 +22,12 @@ router.post('/album', async (req, res, next) => {
   const { body } = req;
   if (req.body) {
     var albumService = new AlbumService();
-    await albumService.CreateAlbum(req.body);
-    res.status(200).json({ message: 'Inserted' });
+    const dataCreated = await albumService.CreateAlbum(req.body);
+    if (dataCreated) {
+      res.status(200).json({ message: dataCreated });
+    } else {
+      res.status(500).json({ message: 'Moogose error' });
+    }
   } else {
     res.status(500).json({ message: 'Insert error' });
   }
@@ -36,8 +40,12 @@ router.put('/album/:id', async (req, res, next) => {
   const { body, params } = req;
   if (params.id && body) {
     var albumService = new AlbumService();
-    await albumService.UpdateAlbum(params.id, body);
-    res.status(200).json({ message: 'Updated' });
+    const dataUpdated = await albumService.UpdateAlbum(params.id, body);
+    if (dataUpdated) {
+      res.status(200).json({ message: dataUpdated });
+    } else {
+      res.status(500).json({ message: 'Moogose error' });
+    }
   } else {
     res.status(500).json({ message: 'Update error' });
   }
