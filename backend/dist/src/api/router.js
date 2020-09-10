@@ -37,9 +37,9 @@ router.get('/albums', async function (req, res, next) {
 router.post('/album', async function (req, res, next) {
   var body = req.body;
 
-  if (req.body) {
+  if (body) {
     var albumService = new _albumService2.default();
-    var dataCreated = await albumService.CreateAlbum(req.body);
+    var dataCreated = await albumService.CreateAlbum(body);
     if (dataCreated) {
       res.status(200).json({ message: dataCreated });
     } else {

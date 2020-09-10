@@ -25,7 +25,7 @@ var AlbumService = function () {
       var newInsert = new _album2.default();
       newInsert.title = data.title;
       newInsert.description = data.description;
-      newInsert.publishing_date = data.publishing_date;
+      newInsert.publishing_date = data.publishDate;
       newInsert.cover_b64 = data.cover_b64;
       var response = await newInsert.save();
       return response;

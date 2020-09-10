@@ -8,7 +8,7 @@ export default class AlbumService {
     let newInsert = new Album();
     newInsert.title = data.title;
     newInsert.description = data.description;
-    newInsert.publishing_date = data.publishing_date;
+    newInsert.publishing_date = data.publishDate;
     newInsert.cover_b64 = data.cover_b64;
     const response = await newInsert.save();
     return response;

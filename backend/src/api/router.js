@@ -20,9 +20,9 @@ router.get('/albums', async (req, res, next) => {
  */
 router.post('/album', async (req, res, next) => {
   const { body } = req;
-  if (req.body) {
+  if (body) {
     var albumService = new AlbumService();
-    const dataCreated = await albumService.CreateAlbum(req.body);
+    const dataCreated = await albumService.CreateAlbum(body);
     if (dataCreated) {
       res.status(200).json({ message: dataCreated });
     } else {
