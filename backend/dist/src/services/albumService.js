@@ -45,8 +45,7 @@ var AlbumService = function () {
   }, {
     key: 'RemoveAlbum',
     value: async function RemoveAlbum(albumId) {
-      console.log(albumId);
-      var response = await _album2.default.findOneAndDelete(albumId);
+      var response = await _album2.default.findOneAndDelete({ _id: albumId });
       return response;
     }
   }, {

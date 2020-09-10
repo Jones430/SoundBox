@@ -25,7 +25,7 @@ export default class AlbumService {
   }
 
   async RemoveAlbum (albumId) {
-    const response = await Album.findOneAndDelete(albumId);
+    const response = await Album.findOneAndDelete({ _id: albumId });
     return response;
   }
 
